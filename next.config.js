@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n,
   eslint: {
-    ignoreDuringBuilds: true, // ✅ Matikan linting saat build di Vercel
+    ignoreDuringBuilds: true, // agar build tidak gagal karena lint
   },
-  output: 'export', // ✅ Tambahkan ini agar semua halaman statis diekspor
+  output: "export", // agar bisa dideploy static di Vercel
 };
 
 module.exports = nextConfig;
