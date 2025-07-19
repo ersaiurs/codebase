@@ -1,0 +1,132 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gridWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  gap: 6px;
+  background-color: blue;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 2;
+}
+
+.row {
+  display: contents;
+}
+
+.cell {
+  position: relative; /* PENTING: untuk menjaga huruf tetap dalam kotaknya */
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  z-index: 2;
+  overflow: hidden; /* Tambahan jika highlight nyasar masuk */
+}
+
+
+
+.selectedCell {
+  background-color: rgba(173, 216, 230, 0.5); /* Light Blue */
+  border-radius: 999px;
+}
+
+.foundCell {
+  color: white;
+  font-weight: bold;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+  z-index: 5;
+}
+
+/* Daftar kata */
+.wordList {
+  font-size: 16px;
+  min-width: 160px;
+}
+
+.wordList h3 {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.wordList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wordList li {
+  margin-bottom: 6px;
+  transition: color 0.3s;
+}
+
+.foundWord {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Layer untuk highlight */
+.highlightLayer {
+  position: absolute;
+  top: 20px;  /* padding dari .grid */
+  left: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden; /* mencegah highlight keluar dari grid */
+}
+
+/* Highlight (tabung transparan) */
+.highlight {
+  position: absolute;
+  height: 40px;
+  border-radius: 999px;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  transform-origin: left center;
+  z-index: 1;
+}
+
+
+/* 10 Warna transparan */
+.color-0 { background-color: rgba(255, 107, 107, 0.4); }   /* merah muda */
+.color-1 { background-color: rgba(107, 203, 119, 0.4); }   /* hijau muda */
+.color-2 { background-color: rgba(77, 150, 255, 0.4); }    /* biru cerah */
+.color-3 { background-color: rgba(255, 217, 61, 0.4); }    /* kuning */
+.color-4 { background-color: rgba(166, 109, 212, 0.4); }   /* ungu */
+.color-5 { background-color: rgba(255, 181, 98, 0.4); }    /* oranye */
+.color-6 { background-color: rgba(62, 193, 211, 0.4); }    /* cyan */
+.color-7 { background-color: rgba(244, 124, 124, 0.4); }   /* merah soft */
+.color-8 { background-color: rgba(154, 208, 194, 0.4); }   /* tosca */
+.color-9 { background-color: rgba(255, 156, 238, 0.4); }   /* pink muda */
