@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
-export default function puzzleIntroPage() {
+export default function PuzzleIntroPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [canAccessPuzzle, setCanAccessPuzzle] = useState(false);
