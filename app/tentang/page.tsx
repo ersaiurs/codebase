@@ -56,7 +56,7 @@ export default function TentangPage() {
           <div className="grid md:grid-cols-3 gap-4 text-center">
             <div className="bg-blue-50 p-4 rounded">
               <p className="font-semibold">🌟 Interaktif</p>
-              <p className="text-gray-700 text-sm mt-1">Belajar melalui permainan dan blok visual coding seperti Blockly.</p>
+              <p className="text-gray-700 text-sm mt-1">Belajar melalui permainan dan blok visual coding.</p>
             </div>
             <div className="bg-blue-50 p-4 rounded">
               <p className="font-semibold">🛠️ Praktis</p>
@@ -64,7 +64,7 @@ export default function TentangPage() {
             </div>
             <div className="bg-blue-50 p-4 rounded">
               <p className="font-semibold">✅ Terstruktur</p>
-              <p className="text-gray-700 text-sm mt-1">Materi dan latihan disusun per level untuk perkembangan bertahap.</p>
+              <p className="text-gray-700 text-sm mt-1">Materi dan permainan quiz disusun per level untuk perkembangan bertahap.</p>
             </div>
           </div>
         </section>
