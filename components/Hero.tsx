@@ -148,7 +148,7 @@ const Hero = () => {
         <ul className="mt-6 space-y-3">
           <li className="text-blue-600 font-bold">✅ Metode Belajar Interaktif & Menyenangkan</li>
           <li className="text-blue-600 font-bold">✅ Konten Visual & Praktik Langsung</li>
-          <li className="text-blue-600 font-bold">✅ Materi Disesuaikan untuk Anak Usia 10–16 Tahun</li>
+          <li className="text-blue-600 font-bold">✅ Materi Disesuaikan untuk Anak Usia 10–15 Tahun</li>
           <li className="text-blue-600 font-bold">✅ Dukungan Belajar Bertahap dari Dasar</li>
         </ul>
 
