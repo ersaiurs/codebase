@@ -42,13 +42,6 @@ export default function CompletePage() {
     return () => unsubscribe();
   }, []);
 
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/certificate-wordsearch.pdf'; // Ganti path jika perlu
-    link.download = 'certificate-wordsearch.pdf';
-    link.click();
-  };
-
   if (checkingProgress) {
     return (
       <div className="min-h-screen flex items-center justify-center text-xl text-gray-600">
@@ -80,14 +73,7 @@ export default function CompletePage() {
             <p className="text-gray-500">Memuat sertifikat...</p>
           )}
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={handleDownload}
-              className="px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow hover:bg-green-700 transition"
-            >
-              📄 Unduh Sertifikat
-            </button>
-
+          <div className="mt-6">
             <button
               onClick={() => router.push('/games/select')}
               className="px-6 py-3 bg-gray-400 text-white rounded-lg hover:bg-gray-600 transition"

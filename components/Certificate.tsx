@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 interface CertificateProps {
   name: string;
@@ -11,13 +12,29 @@ interface CertificateProps {
 const Certificate: React.FC<CertificateProps> = ({ name, competition }) => {
   const certRef = useRef<HTMLDivElement>(null);
 
+  // Export sebagai PNG
   const handleExportImage = async () => {
     if (certRef.current) {
-      const canvas = await html2canvas(certRef.current);
+      const canvas = await html2canvas(certRef.current, { scale: 2 });
       const link = document.createElement('a');
       link.download = `certificate-${name}.png`;
       link.href = canvas.toDataURL('image/png');
       link.click();
+    }
+  };
+
+  // Export sebagai PDF
+  const handleExportPDF = async () => {
+    if (certRef.current) {
+      const canvas = await html2canvas(certRef.current, { scale: 2 });
+      const imgData = canvas.toDataURL('image/png');
+
+      const pdf = new jsPDF('landscape', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = pdf.internal.pageSize.getHeight();
+
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      pdf.save(`certificate-${name}.pdf`);
     }
   };
 
@@ -26,11 +43,7 @@ const Certificate: React.FC<CertificateProps> = ({ name, competition }) => {
       <div ref={certRef} className="certificate">
         <div className="flex items-center justify-between gap-4">
           {/* Medali kiri */}
-          <img
-            src="/medali2.png"
-            alt="Medali"
-            className="w-20 h-20 object-contain"
-          />
+          <img src="/medali2.png" alt="Medali" className="w-20 h-20 object-contain" />
 
           {/* Konten utama sertifikat */}
           <div className="flex-1 text-center">
@@ -52,20 +65,24 @@ const Certificate: React.FC<CertificateProps> = ({ name, competition }) => {
           </div>
 
           {/* Medali kanan */}
-          <img
-            src="/medali2.png"
-            alt="Medali"
-            className="w-20 h-20 object-contain"
-          />
+          <img src="/medali2.png" alt="Medali" className="w-20 h-20 object-contain" />
         </div>
       </div>
 
-      <button
-        onClick={handleExportImage}
-        className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 shadow"
-      >
-        📸 Simpan Sebagai Gambar
-      </button>
+      <div className="flex gap-4 mt-4">
+        <button
+          onClick={handleExportImage}
+          className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 shadow"
+        >
+          📸 Simpan PNG
+        </button>
+        <button
+          onClick={handleExportPDF}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 shadow"
+        >
+          📄 Simpan PDF
+        </button>
+      </div>
 
       <style jsx>{`
         .certificate {
