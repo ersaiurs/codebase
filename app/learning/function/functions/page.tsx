@@ -15,7 +15,7 @@ export default function FunctionsLessonPage() {
 
 
   const handleNext = () => {
-    router.push('/learning/array');
+    router.push('/learning/function/array');
   };
 
   return (
